@@ -35,7 +35,7 @@ namespace HTTP_server
                     await using NetworkStream stream = handler.GetStream();
 
                     // encoding and reading request
-                    var buffer = new byte[1_024];
+                    var buffer = new byte[4_096];
                     int received = await stream.ReadAsync(buffer);
                     string request = Encoding.UTF8.GetString(buffer, 0, received);
 
